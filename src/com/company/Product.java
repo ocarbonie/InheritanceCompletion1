@@ -1,5 +1,8 @@
 package com.company;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+
 public class Product {
     private String code;
     private String description;
@@ -12,7 +15,29 @@ public class Product {
         price = 0;
     }
 
-    // Get and set accessors for the code, description, and price instance variables
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
 
     @Override
     public String toString() {
@@ -22,11 +47,12 @@ public class Product {
     }
 
     private String getFormattedPrice(double p) {
-        return "%2d, p";
+        NumberFormat formatter = new DecimalFormat("#0.00");
+        return (formatter.format(p));
+
         // Use the NumberFormat class to format the price to 2 decimal places
     }
 
-    // Create public access for the count variable
     public static int getCount() {
         return count;
     }
